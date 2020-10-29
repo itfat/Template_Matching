@@ -42,32 +42,40 @@ for i in range(pop_size):
     b = img1-np.mean(img1)
     if (a.shape==b.shape):
         mul = a*b    
-    mul_sum = np.sum(mul)
+        mul_sum = np.sum(mul)
     # print(mul_sum)
     # dENOMINATOR
-    a_sq = a**2
-    b_sq = b**2
-    a_sum = np.sum(a_sq)
-    b_sum = np.sum(b_sq)
-    result= np.sqrt(a_sum*b_sum)
+        a_sq = a**2
+        b_sq = b**2
+        a_sum = np.sum(a_sq)
+        b_sum = np.sum(b_sq)
+        result= np.sqrt(a_sum*b_sum)
     # print(result)
     # CROSS-CORRELATION
-    value = mul_sum/result
+        value = mul_sum/result
     # print(value)
-    fitness_values.append(value)
+        fitness_values.append(value)
+    else:
+        fitness_values.append(0)
     # print(frame)
 # print("frame shape is")
 print(fitness_values)
 # SORTING
 print('Sorted')
-fitness_values.sort()
-print(fitness_values)
-# SQUARING THE FACE
-fig,ax = plt.subplots(1)
-ax.imshow(img2)
-rect = patches.Rectangle((50,100),40,30,linewidth=1,edgecolor='r',facecolor='none')
-ax.add_patch(rect)
-plt.show()
+sorted_fitness = sorted(fitness_values)
+print(sorted_fitness)
+# EXTRACTING THE MAX COORDINATE
+for i in range(pop_size):
+
+    if (fitness_values[i]== sorted_fitness[pop_size-1]):
+        print(fitness_values[i])
+        print(pop_table[i])
+        # SQUARING THE FACE
+        fig,ax = plt.subplots(1)
+        ax.imshow(img2)
+        rect = patches.Rectangle(pop_table[i],35,29,linewidth=1,edgecolor='r',facecolor='none')
+        ax.add_patch(rect)
+        plt.show()
 
 
 
@@ -94,6 +102,10 @@ plt.show()
 # print(img2.shape)
 # imgplot = plt.imshow(img2)
 # plt.show()
+
+
+
+
 
 
 
