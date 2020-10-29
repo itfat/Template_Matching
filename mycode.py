@@ -59,7 +59,9 @@ for i in range(pop_size):
         fitness_values.append(0)
     # print(frame)
 # print("frame shape is")
+
 print(fitness_values)
+threshold = 0.9
 # SORTING
 print('Sorted')
 sorted_fitness = sorted(fitness_values)
@@ -70,12 +72,13 @@ for i in range(pop_size):
     if (fitness_values[i]== sorted_fitness[pop_size-1]):
         print(fitness_values[i])
         print(pop_table[i])
+        if (fitness_values[i] >= 0.4):
         # SQUARING THE FACE
-        fig,ax = plt.subplots(1)
-        ax.imshow(img2)
-        rect = patches.Rectangle(pop_table[i],35,29,linewidth=1,edgecolor='r',facecolor='none')
-        ax.add_patch(rect)
-        plt.show()
+            fig,ax = plt.subplots(1)
+            ax.imshow(img2, cmap= 'gray')
+            rect = patches.Rectangle(pop_table[i],35,29,linewidth=1,edgecolor='r',facecolor='none')
+            ax.add_patch(rect)
+            plt.show()
 
 
 
@@ -102,6 +105,11 @@ for i in range(pop_size):
 # print(img2.shape)
 # imgplot = plt.imshow(img2)
 # plt.show()
+
+
+
+
+
 
 
 
