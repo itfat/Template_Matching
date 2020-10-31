@@ -60,28 +60,113 @@ for i in range(pop_size):
     # print(frame)
 # print("frame shape is")
 
-print(fitness_values)
+# print(fitness_values)
 threshold = 0.9
 # SORTING
-print('Sorted')
+# print('Sorted')
 sorted_fitness = sorted(fitness_values)
-print(sorted_fitness)
+# print(sorted_fitness)
 # EXTRACTING THE MAX COORDINATE
+if (sorted_fitness[pop_size - 1] >= 0.4):
+# SQUARING THE FACE
+    fig,ax = plt.subplots(1)
+    ax.imshow(img2, cmap= 'gray')
+    rect = patches.Rectangle(pop_table[i],35,29,linewidth=1,edgecolor='r',facecolor='none')
+    ax.add_patch(rect)
+    plt.show()
+# MAKING NEW POPULATION TABLE
+new_pop_table = []
 for i in range(pop_size):
+    for j in range(pop_size):
+        if (sorted_fitness[i]==fitness_values[j]):
+            fitness_values[j] = -100
+            new_pop_table.append(pop_table[j])
+    #     print(fitness_values[i])
+    #     print(pop_table[i])
+   
+# print(new_pop_table)
+binary_number = []
+# print(len(new_pop_table))
+out_array = np.asarray(new_pop_table, dtype=np.int)
+for i in out_array:
+    x = np.binary_repr(i[0], width= 11)
+    y = np.binary_repr(i[1], width= 11)
+    binary_number.append((x,y))
+# print("binary =================================")
+# print(binary_number)
+# print("uihduhd=----")
+# print(binary_number[0][0], binary_number[0][1])
+# print(len(binary_number))
+concat_binary = [''.join(i) for i in binary_number]
+# print(len(concat_binary))
+# print(concat_binary)
+# result.append(([''.join(x) for x in binary_number[0]]))
+# print(result)
+result_list = []
+for i in range(0,pop_size, 2):
+    binary_value_1 = concat_binary[i]
+    binary_value_2 = concat_binary[i+1]
+    binary_value_1 = list(binary_value_1)
+    binary_value_2 = list(binary_value_2)
+    # print(binary_value_1, binary_value_2)
+    # print(type(binary_value_1[0]),type(binary_value_2))
+    random_point = np.random.randint(0, 22)
+    # print("CrossOver Point", random_point)
+    for j in range(random_point, 22):
+        # print(type(binary_value_1[j]))
+        binary_value_1[j], binary_value_2[j] = binary_value_2[j], binary_value_1[j]
+    binary_value_1= ''. join(binary_value_1)
+    binary_value_2= ''. join(binary_value_2)
+    result_list.append(binary_value_1)
+    result_list.append(binary_value_2)
+# print(result_list)
 
-    if (fitness_values[i]== sorted_fitness[pop_size-1]):
-        print(fitness_values[i])
-        print(pop_table[i])
-        if (fitness_values[i] >= 0.4):
-        # SQUARING THE FACE
-            fig,ax = plt.subplots(1)
-            ax.imshow(img2, cmap= 'gray')
-            rect = patches.Rectangle(pop_table[i],35,29,linewidth=1,edgecolor='r',facecolor='none')
-            ax.add_patch(rect)
-            plt.show()
+# MUTATION
+mutated_result=[]
+for value in result_list:
+    value= list(value)
+    mutation_point = np.random.randint(0,22)
+    # print(value[mutation_point])
+    if(value[mutation_point]==0):
+        value[mutation_point]=1
+    else:
+        value[mutation_point]=0
+    # print(value)
+    value= ''.join(str(v) for v in value)
+    mutated_result.append(value)
+print(mutated_result)
 
 
+# def binaryToDecimal(bin): 
+# return int(n,2) 
 
+
+# dec_to_binary(new_pop_table)
+# print(binary_number)
+
+# binary_value_1 = concat_binary[0]
+# binary_value_2 = concat_binary[1]
+# binary_value_1 = list(binary_value_1)
+# binary_value_2 = list(binary_value_2)
+# print(binary_value_1, binary_value_2)
+# print(type(binary_value_1),type(binary_value_2))
+# random_point = np.random.randint(0, 22)
+# print("CrossOver Point", random_point)
+# for i in range(random_point, 22):
+#     print(type(binary_value_1[i]))
+#     binary_value_1[i], binary_value_2[i] = binary_value_2[i], binary_value_1[i]
+# binary_value_1= ''. join(binary_value_1)
+# binary_value_2= ''. join(binary_value_2)
+#     # result_list.append(binary_value_1, binary_value_2)
+# print(binary_value_1, binary_value_2)
+    
+    # random_number = np.random.randint(0,8,dtype=int)
+
+# def Cross_over(Bnumber):
+#     for i in range(0, 50, 2):
+#        cross_over_imp(Bnumber[i],Bnumber[i+1])
+# Cross_over(binary_number)
+# print(result)
 # print(p1)
 # print(p2)
 # random.seed(1)
@@ -105,6 +190,11 @@ for i in range(pop_size):
 # print(img2.shape)
 # imgplot = plt.imshow(img2)
 # plt.show()
+
+
+
+
+
 
 
 
