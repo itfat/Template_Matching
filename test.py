@@ -8,7 +8,6 @@ import numpy as np
 # n = 20
 # cols = np.array[1,2,3,4,5]
 # arr1 = (np.random.randint(5, size=(n,4)))
-# # img1 = mpimg.imread('boothiGray.jpg')
 # # img2 = mpimg.imread('groupGray.jpg')
 # # li2 = [[1,2],[3,4],[5,6]]
 # # li2 = np.asarray(li2)
@@ -17,10 +16,9 @@ import numpy as np
 
 from PIL import Image
 
-# im1 = Image.open(r'testboothi.png')
-# im2 = im1.convert('RGB')
-# im2.save(r'testboothi8.jpg')
-i2 = mpimg.imread('lidd.jpg')
+
+
+i2 = mpimg.imread('faceGray.jpg')
 i2 = i2[:, :, 2]
 print(i2.shape)
 
