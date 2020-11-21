@@ -6,7 +6,7 @@ import sys
 print(sys.getrecursionlimit())
 sys.setrecursionlimit(1500)
 
-img1 = mpimg.imread('boothiGray.jpg')
+img1 = mpimg.imread('faceGray.jpg')
 img2 = mpimg.imread('groupGray.jpg')
 
  
