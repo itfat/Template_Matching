@@ -3,9 +3,9 @@ import matplotlib.image as mpimg
 import matplotlib.patches as patches
 import numpy as np
 
-i1 = mpimg.imread('boothiGray.jpg')
+i1 = mpimg.imread('faceGray.jpg')
 
-# i1 = mpimg.imread('testboothi.png')
+
 i2 = mpimg.imread('groupGray.jpg')
 # FOR PNG
 # i1 = i1[:,:,2]
