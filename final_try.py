@@ -5,14 +5,14 @@ import numpy as np
 
 # TESTING INPUTS
 
-i1 = mpimg.imread('boothiGray.jpg')
-# i1 = mpimg.imread('testboothi.png')
-i1 = mpimg.imread('aunti.png')
+i1 = mpimg.imread('faceGray.jpg')
+# i1 = mpimg.imread('testface.png')
+
 i2 = mpimg.imread('groupGray.jpg')
 
 # FOR PNG
 
-i1 = i1[:,:,2]
+#i1 = i1[:,:,2]
 img1 = i1.copy()
 img2 = i2.copy()
 
