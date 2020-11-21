@@ -167,6 +167,7 @@ def newPopTable(sorted_pop_table, mutated_result, img2, pop_size):
             else:    
                 coordinates.append((np.random.randint(img2.shape[0]), np.random.randint(img2.shape[1])))
         # ---------------------------------------------------------
+        
 
     return coordinates
 
